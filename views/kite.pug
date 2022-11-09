@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  - let kites = [{kiteName:"Deltakites" , kiteCost: 50, quantityAvailable: 400},{kiteName:"Diamondkites", kiteCost: 100, quantityAvailable: 30},{kiteName:"Foilkites",kiteCost: 200, quantityAvailable: 2}]
+  - let kites = results
   div(class="container-fluid mt-3")
   div(class="row")
     each kite,index in kites
