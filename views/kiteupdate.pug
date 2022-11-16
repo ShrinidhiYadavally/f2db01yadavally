@@ -1,0 +1,40 @@
+extends layout
+block content
+    h1= title
+    - let kiteid = toShow._id
+    - let kiteName = toShow.kiteName
+    - let kiteCost = toShow.kiteCost
+    - let quantityAvailable = toShow.quantityAvailable
+    div.row(class='mb-2')
+        div.mr-1 ID is
+        div #{kiteid}
+    - let actionid = "/resource/kite/" + kiteid
+    form(id='kiteForm', action= actionid, method="PUT")
+        div.form-group
+            label.kiteAttr(for='kiteName') Costume type
+            input#kiteName(type='text', name='kiteName', value= kiteName )
+        div.form-group
+            label.kiteAttr(for='kiteCost') kite Cost
+            input#kiteCost(type='number', name='kiteCost', value= kiteCost )    
+        div.form-group
+            label.kiteAttr(for='quantityAvailable') Quantity Available
+            input#quantityAvailable(type='number', name='quantityAvailable', value= quantityAvailable )
+        
+        input(type="submit")
+    script.
+        document.forms['kiteForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+            method: 'PUT',
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+            return resp.json(); // or resp.text() or whatever the server sends
+        }).then((body) => {
+            alert("Update succeded")
+            // TODO handle body
+        }).catch((error) => {
+            // TODO handle error
+            alert("Update failed " + error )
+        });
+        });

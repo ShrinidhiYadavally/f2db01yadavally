@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1= title
+    - let kiteid = toShow._id
+    - let kiteName = toShow.kiteName
+    - let kiteCost = toShow.kiteCost
+    - let quantityAvailable = toShow.quantityAvailable
+    div
+        div.row
+            div(class='kiteAttr mr-3') Kite ID is:
+            div #{kiteid}
+        div.row
+            div(class='kiteAttr mr-3') Kite Name is:
+            div #{kiteName}
+        div.row
+            div(class='kiteAttr mr-3') Kite Cost is:
+            div #{kiteCost}
+        div.row
+            div(class='kiteAttr mr-3') Quantity Available is:
+            div #{quantityAvailable}
