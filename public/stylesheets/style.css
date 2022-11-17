@@ -8,6 +8,7 @@ a {
 }
 
 .kiteAttr {
-  background-color: aquamarine;
+  background-color: bisque;
   width: 120px;
+  border-radius: 5px;
  }
