@@ -4,14 +4,16 @@ block content
   h1= title
   - let kites = results
   div(class="container-fluid mt-3")
-  div(class="row")
-    each kite,index in kites
-       div(class="col-sm-2" onclick=`buy(${index})`)  #{kite.kiteName} -  #{kite.kiteCost} - #{kite.quantityAvailable} 
+    div(class="row m-1")
+      each kite,index in kites
+        - let destination = `dispatch(\"/kite/update?id=${kite._id}\")`      
+        div(class="col-sm-2", class="m-1")  #{kite.kiteName} -  #{kite.kiteCost} - #{kite.quantityAvailable} 
+
+          p 
+          button.btn( class="btn-primary ml-1", onclick= destination) Update      
     script.
-      function buy(itemNo)
-      {
-        alert(`You purchased Item ${itemNo+1}`)
-      }     
- 
+      function dispatch(path){
+        window.location.href=path
+      }
 
 
