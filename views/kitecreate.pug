@@ -5,13 +5,13 @@ block content
     form(id='kiteForm', action="/resource/kite", method="POST")
         div.form-group
             label.kiteAttr(for='kiteName') kite Name
-            input#kiteName(type='text', name='kiteName')
+            input#kiteName(type='text', name='kiteName' ,required)
         div.form-group
             label.kiteAttr(for='kiteCost') kite Cost
             input#kiteCost(type='number', name='kiteCost')
         div.form-group
             label.kiteAttr(for='quantityAvailable')  Quantity Available
-            input#quantityAvailable(type='number', name='quantityAvailable')
+            input#quantityAvailable(type='number', name='quantityAvailable',min=0,max=1000)
         input(type="submit")
 
     script.

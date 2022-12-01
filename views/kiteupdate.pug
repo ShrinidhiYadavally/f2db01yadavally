@@ -15,13 +15,13 @@ block content
         form(id='kiteForm', action= actionid, method="PUT")
             div.form-group
                 label.kiteAttr(for='kiteName') Costume type
-                input#kiteName(type='text', name='kiteName', value= kiteName )
+                input#kiteName(type='text', name='kiteName', value= kiteName, minlength="10")
             div.form-group
                 label.kiteAttr(for='kiteCost') kite Cost
                 input#kiteCost(type='number', name='kiteCost', value= kiteCost )    
             div.form-group
                 label.kiteAttr(for='quantityAvailable') Quantity Available
-                input#quantityAvailable(type='number', name='quantityAvailable', value= quantityAvailable )
+                input#quantityAvailable(type='number', name='quantityAvailable', value= quantityAvailable,min=0,max=1000)
         
             input(type="submit")
         script.
